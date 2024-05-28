@@ -38,7 +38,7 @@ const Cart: React.FC<Props> = ({ cartItems, onUpdateCartItem, onDeleteCartItem }
         <tfoot>
           <tr>
             <td colSpan={4}>
-              There are <b>{cartItems.length}</b> items in your shopping cart.
+              There are <b>{cartItems.reduce((total,item) => total + item.quantity , 0)}</b> items in your shopping cart.
             </td>
             <td colSpan={2} className="total-price text-left">
               {cartItems.reduce((total, item) => total + item.price * item.quantity, 0)} USD
